@@ -35,7 +35,7 @@ namespace SignalRApi.Controllers
                 CategoryName = createCategoryDto.CategoryName,
                 CategoryStatus = createCategoryDto.CategoryStatus
             });
-            return Ok("Kaytegori Eklendi");
+            return Ok("Kategori Eklendi");
         }
 
         [HttpDelete]

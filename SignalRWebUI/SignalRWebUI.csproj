@@ -6,4 +6,28 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="Views\Shared\Component\**" />
+    <Content Remove="Views\Shared\Component\**" />
+    <EmbeddedResource Remove="Views\Shared\Component\**" />
+    <None Remove="Views\Shared\Component\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="Views\Shared\Components\_LayoutHeaderPartialComponent\Index.cshtml" />
+    <Content Remove="Views\Shared\_Layout.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Views\Shared\_Layout.cshtml.css" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\Ready-Bootstrap-Dashboard-master\.DS_Store" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.16" />
+  </ItemGroup>
+
 </Project>
