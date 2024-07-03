@@ -30,7 +30,7 @@ namespace SignalRApi.Controllers
         }
 
         [HttpGet("ProductListWithCategory")]
-        public IActionResult ProductListWithCateroy()
+        public IActionResult ProductListWithCategory()
         {
             //var value = _mapper.Map<List<ResultProductWithCategory>>(_productService.TGetProductsWithCategories());
             /*
@@ -42,6 +42,7 @@ namespace SignalRApi.Controllers
             var context = new SignalRContext();
             var values = context.Products.Include(x => x.Category).Select(y => new ResultProductWithCategory
             {
+                ProductID = y.ProductID,
                 ProductName = y.ProductName,
                 Description = y.Description,
                 Price = y.Price,
@@ -61,12 +62,13 @@ namespace SignalRApi.Controllers
                 Description = createProductDto.Description,
                 Price = createProductDto.Price,
                 ImageUrl = createProductDto.ImageUrl,
-                ProductStatus = createProductDto.ProductStatus
+                ProductStatus = createProductDto.ProductStatus,
+                CategoryID = createProductDto.CategoryID
             });
             return Ok("İletişim bilgisi eklendi");
         }
 
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public IActionResult DeleteProduct(int id)
         {
             var value = _productService.TGetByID(id);
@@ -74,7 +76,7 @@ namespace SignalRApi.Controllers
             return Ok("Silindi");
         }
 
-        [HttpGet("GetProduct")]
+        [HttpGet("{id}")]
         public IActionResult GetProduct(int id)
         {
             var value = _productService.TGetByID(id);
@@ -91,7 +93,8 @@ namespace SignalRApi.Controllers
                 Description = updateProductDto.Description,
                 Price = updateProductDto.Price,
                 ImageUrl = updateProductDto.ImageUrl,
-                ProductStatus = updateProductDto.ProductStatus
+                ProductStatus = updateProductDto.ProductStatus,
+                CategoryID = updateProductDto.CategoryID
             });
             return Ok("İletişim Bilgisi Eklendi");
         }
