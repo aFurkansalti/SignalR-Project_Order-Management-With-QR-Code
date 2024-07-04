@@ -1,4 +1,4 @@
-﻿@model List<ResultAboutDto>
+﻿@model List<ResultContactDto>
 
 @{
     ViewData["Title"] = "Index";
@@ -7,22 +7,24 @@
 
 <div class="content">
     <div class="container-fluid">
-        <h4 class="page-title">Kategori İşlemleri</h4>
+        <h4 class="page-title">Ana Sayfa İletişim Bilgi İşlemleri</h4>
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <div class="card-title">Kategori Listesi</div>
+                        <div class="card-title">İletişim Listesi</div>
                     </div>
                     <div class="card-body">
                         <div class="card-sub">
-                            Hakkımızda alanıyla ilgili işlemleri yapabilirsiniz. Tema bütünlüğü için sadece 1 tane hakkımızda alanı oluşturmayı unutmayın.
+                            İletişim alanıyla ilgili işlemleri yapabilirsiniz. Tema bütünlüğü için sadece 1 tane iletişim alanı oluşturmayı unutmayın.
                         </div>
                         <table class="table mt-3">
                             <thead>
                                 <tr>
                                     <th scope="col">#</th>
-                                    <th scope="col">Başlık</th>
+                                    <th scope="col">Konum</th>
+                                    <th scope="col">Telefon</th>
+                                    <th scope="col">Mail</th>
                                     <th scope="col">Açıklama</th>
                                     <th scope="col">Sil</th>
                                     <th scope="col">Güncelle</th>
@@ -32,16 +34,18 @@
                                 @foreach (var item in Model)
                                 {
                                     <tr>
-                                        <td>@item.AboutID</td>
-                                        <td>@item.Title</td>
-                                        <td>@item.Description</td>
-                                        <td><a href="/About/DeleteAbout/@item.AboutID" class="btn btn-outline-danger">Sil</a></td>
-                                        <td><a href="/About/UpdateAbout/@item.AboutID" class="btn btn-outline-warning">Güncelle</a></td>
+                                        <td>@item.ContactID</td>
+                                        <td>@item.Location</td>
+                                        <td>@item.Phone</td>
+                                        <td>@item.Mail</td>
+                                        <td>@item.FooterDescription</td>
+                                        <td><a href="/Contact/DeleteContact/@item.ContactID" class="btn btn-outline-danger">Sil</a></td>
+                                        <td><a href="/Contact/UpdateContact/@item.ContactID" class="btn btn-outline-warning">Güncelle</a></td>
                                     </tr>
                                 }
                             </tbody>
                         </table>
-                        <a href="/About/CreateAbout/" class="btn btn-outline-primary">Yeni Hakkımda Yazısı Girişi</a>
+                        <a href="/Contact/CreateContact/" class="btn btn-outline-primary">Yeni İletişim Yazısı Girişi</a>
                     </div>
                 </div>
             </div>
